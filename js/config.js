@@ -3,7 +3,7 @@ export const VERSION = '1.0.0';
 
 // Your live address, e.g. 'https://ifunner.github.io/firstcue/' or 'https://plan.ifunner.com/'.
 // Empty = use whatever address the page is opened from.
-export const PUBLIC_URL = '';
+export const PUBLIC_URL = 'https://ifunner.github.io/firstcue/';
 
 // Pre-filled the first time a DJ opens the setup page.
 export const DEFAULT_DJ = { name: 'iFunner', email: '' };
