@@ -117,7 +117,12 @@ textarea{resize:vertical;min-height:84px}
 .linkbtn{border:0;background:none;padding:0;color:var(--accent);font-weight:600;text-decoration:underline;text-underline-offset:3px;align-self:flex-start;text-align:left}
 .icon{border:0;background:none;color:var(--muted);font-size:20px;line-height:1;padding:4px 8px;border-radius:8px;min-width:32px;min-height:32px}
 .icon:hover{color:var(--warn);background:var(--sunk)}
-.dot{font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);background:var(--gold-soft);padding:2px 7px;border-radius:99px;white-space:nowrap}
+.fc-key{display:inline-flex;align-items:center;flex:none;box-sizing:border-box;width:auto;height:auto;min-width:0;min-height:20px;margin:0;
+  padding:3px 7px;border:0;border-radius:99px;background:var(--gold-soft);color:var(--gold);
+  font:700 11px/1 var(--body);letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;vertical-align:middle;
+  box-shadow:none;opacity:1;transform:none;position:static}
+/* Labels and counters never break mid-word, whatever the long-text rule says. */
+.main .fc-key,.main .tag,.main .pill,.main .count,.main .saved{overflow-wrap:normal;word-break:normal}
 .tag{font-size:12px;font-weight:600;color:var(--muted);background:var(--sunk);padding:2px 8px;border-radius:99px;white-space:nowrap}
 .tag.warn{color:var(--warn);background:var(--warn-soft)}
 .tag.key{color:var(--gold);background:var(--gold-soft)}
@@ -185,8 +190,8 @@ textarea{resize:vertical;min-height:84px}
 .reorder{display:inline-flex;gap:0}
 .icon.mv{font-size:12px;color:var(--muted);min-width:30px;min-height:32px;padding:4px}
 .icon.mv:hover{color:var(--accent)}
-.mrow > .dot{justify-self:end}
-.mrow:not(:has(.dot)) .reorder{grid-column:5}
+.mrow > .fc-key{justify-self:end;align-self:center}
+.mrow:not(:has(.fc-key)) .reorder{grid-column:5}
 .addline{border:1px dashed var(--line-strong);background:transparent;border-radius:10px;padding:10px;color:var(--muted);font-weight:600;font-size:14px}
 .addline:hover{color:var(--accent);border-color:var(--accent)}
 .picker{display:flex;flex-direction:column;gap:12px;background:var(--surface);border:1px solid var(--accent);border-radius:var(--r);padding:14px}

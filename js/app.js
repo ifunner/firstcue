@@ -423,7 +423,7 @@ function vPicker(seg) {
 }
 function vMoments() {
   return html`<header class="stephead"><h1>Which moments need music?</h1>
-    <p class="lede">Untick anything you’re not doing, add what’s missing, and use the arrows (or drag <span class="kbd">⠿</span>) to reorder. <span class="dot">Key</span> moments are the ones your DJ most needs a song for.</p></header>
+    <p class="lede">Untick anything you’re not doing, add what’s missing, and use the arrows (or drag <span class="kbd">⠿</span>) to reorder. <span class="fc-key">Key</span> moments are the ones your DJ most needs a song for.</p></header>
   ${Object.entries(SEGS).map(([seg, name]) => {
     const ms = P.moments.filter(m => m.seg === seg);
     return html`<section class="seg" aria-labelledby="seg-${seg}"><h2 class="seg-h" id="seg-${seg}">${name}</h2>
@@ -431,7 +431,7 @@ function vMoments() {
         <span class="grip" aria-hidden="true">⠿</span>
         <input type="checkbox" class="tick" id="on-${m.id}" data-tick="${m.id}" ${m.off ? '' : raw('checked')} aria-label="Include ${m.label}">
         <input class="mlabel" id="lb-${m.id}" data-label="${m.id}" value="${m.label}" maxlength="${LIMITS.label}" aria-label="Moment name">
-        ${m.key ? html`<span class="dot">Key</span>` : ''}
+        ${m.key ? html`<span class="fc-key">Key</span>` : ''}
         <span class="reorder"><button class="icon mv" data-mv="-1" aria-label="Move ${m.label} up">▲</button><button class="icon mv" data-mv="1" aria-label="Move ${m.label} down">▼</button></span>
         ${m.custom ? html`<button class="icon" data-del-m="${m.id}" aria-label="Delete ${m.label}">×</button>` : ''}
       </li>`)}</ul>
@@ -482,7 +482,7 @@ function songCard(m) {
   }
   return html`<li class="scard ${st}${open ? ' expanded' : ''}" data-id="${m.id}">
     <button class="shead" data-toggle="${m.id}" aria-expanded="${open}">
-      <span class="sl"><b>${m.label}</b>${m.key && st === 'open' ? html`<span class="dot">Key</span>` : ''}</span>
+      <span class="sl"><b>${m.label}</b>${m.key && st === 'open' ? html`<span class="fc-key">Key</span>` : ''}</span>
       <span class="ss">${cardSummary(m)}</span>
     </button>${body}</li>`;
 }
