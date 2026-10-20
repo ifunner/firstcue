@@ -718,7 +718,8 @@ function refreshCard(m) {
   if (card) { card.className = `scard ${status(m)} expanded`; card.querySelector('.ss').innerHTML = String(cardSummary(m)); }
   const fm = $('#footmeta'); if (fm) { const pr = progress(P); fm.textContent = `${pr.done} of ${pr.total} ready`; }
 }
-function refocus(selector) { requestAnimationFrame(() => { const el = document.querySelector(selector); el && el.focus(); }); }
+// Put keyboard focus back right away (render is synchronous), so a second key press lands on the same control.
+function refocus(selector) { const f = () => { const el = document.querySelector(selector); if (el) el.focus(); return !!el; }; if (!f()) requestAnimationFrame(f); }
 
 // ---------- wiring after each render ----------
 function wire() {

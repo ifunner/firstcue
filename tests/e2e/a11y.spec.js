@@ -59,6 +59,7 @@ test('moments can be reordered from the keyboard', async ({ page }) => {
   const down = page.locator('.mlist[data-seg=ceremony] .mrow').first().locator('[data-mv="1"]');
   await down.focus(); await page.keyboard.press('Enter');
   expect(await page.locator('.mlist[data-seg=ceremony] .mlabel').nth(1).inputValue()).toBe(first);
+  await expect(page.locator('.mlist[data-seg=ceremony] .mrow').nth(1).locator('[data-mv="1"]')).toBeFocused();   // focus follows the moved item
   await page.keyboard.press('Enter');
   expect(await page.locator('.mlist[data-seg=ceremony] .mlabel').nth(2).inputValue()).toBe(first);
 });
